@@ -36,6 +36,12 @@ if (process.env.NODE_ENV === "test") {
 app.use("/api/login", loginRouter);
 app.use("/api/blogs", blogRouter);
 app.use("/api/users", usersRouter);
+
+// health
+app.get("/api/health", (req, res) => {
+  res.status(200).send("Everything is fine :)");
+});
+
 app.use(unknownEndpoint);
 app.use(errorHandler);
 
