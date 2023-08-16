@@ -36,7 +36,7 @@ describe("Blog component", () => {
             }
         };
 
-        const { container } = await render(<Blog blog={blog} />);
+        await render(<Blog blog={blog} />);
         const showMoreButton = await screen.getByText("Show more");
         await userEvent.click(showMoreButton);
         // screen.debug(container);

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
 const Blog = (props) => {
     const [view, setView] = useState(false);
     const [likes, setLikes] = useState(props.blog.likes);
@@ -11,7 +11,7 @@ const Blog = (props) => {
         border: "solid",
         borderWidth: 1,
         marginBottom: 5
-    }
+    };
     const changeView = () => {
         setView(!view);
     };
@@ -19,7 +19,7 @@ const Blog = (props) => {
     const addLike = async (event) => {
         try {
             event.preventDefault();
-            props.likeBlog(props.blog)
+            props.likeBlog(props.blog);
             setLikes(likes + 1);
         } catch (error) {
             console.log(error);
@@ -64,6 +64,6 @@ Blog.propTypes = {
     // setNotificationType: PropTypes.func.isRequired,
     // setNotification: PropTypes.func.isRequired,
     blog: PropTypes.object.isRequired
-}
+};
 
 export default Blog;

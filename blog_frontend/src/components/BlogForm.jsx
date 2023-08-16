@@ -5,19 +5,19 @@ const BlogForm = ({ createBlog }) => {
     const [newBlog, setNewBlog] = useState({ author: "", title: "", url: "" });
 
     const handleTitleChange = (event) => {
-        setNewBlog({ ...newBlog, title: event.target.value })
-    }
+        setNewBlog({ ...newBlog, title: event.target.value });
+    };
     const handleAuthorChange = (event) => {
-        setNewBlog({ ...newBlog, author: event.target.value })
-    }
+        setNewBlog({ ...newBlog, author: event.target.value });
+    };
     const handleUrlChange = (event) => {
-        setNewBlog({ ...newBlog, url: event.target.value })
-    }
+        setNewBlog({ ...newBlog, url: event.target.value });
+    };
 
     const addBlog = (event) => {
         event.preventDefault();
         const newBlogCopy = newBlog;
-        createBlog(newBlogCopy)
+        createBlog(newBlogCopy);
         setNewBlog({ author: "", title: "", url: "" });
     };
 

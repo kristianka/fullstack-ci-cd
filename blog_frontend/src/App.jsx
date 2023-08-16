@@ -1,5 +1,4 @@
 import { useEffect, useState, useRef } from "react";
-/* eslint-disable react/prop-types */
 import "./index.css";
 
 import blogsService from "./services/blogs";
