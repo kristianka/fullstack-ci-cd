@@ -31,22 +31,24 @@ jobs:
             run: cd blog_frontend && npm install
 
           - name: Check styles
-            run: npm run lint && cd blog_frontend && npm run lint & cd ..
+            run: npm run lint && cd blog_frontend && npm run lint && cd ..
 
-          - name: Turn on backend server
-            run: npm run start:test
+          - name: Build
+            run: cd blog_frontend && npm run build
 
-          - name: Turn on frontend server
-            run: cd blog_frontend && npm run dev
-           
+          - name: Run backend tests
+            run: npm test -- tests/blog_api.test.js
+          
+          - name: Run frontend tests
+            run: cd blog_frontend && npm run test && cd ..
+
           - name: e2e tests
             uses: cypress-io/github-action@v5
             with:
-              command: npm run cy:e2e
+              command: cd blog_frontend && npm run cy:e2e && cd ..
+              start: npm run start:test
               wait-on: http://localhost:5173
-          
-          - name: Build
-            run: cd blog_frontend && npm run build
+
     
     # deploy:
     #   name: Deploy to Render
@@ -56,6 +58,7 @@ jobs:
     #   steps:
     #     - name: Trigger deployment
     #       run: curl ${{ secrets.RENDER_DEPLOY_URL }}
+
 
     tag_release:
       runs-on: ubuntu-latest
