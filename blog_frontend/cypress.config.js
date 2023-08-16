@@ -3,7 +3,7 @@ import vitePreprocessor from "cypress-vite";
 
 export default defineConfig({
   e2e: {
-    baseUrl: "http://localhost:5173/",
+    baseUrl: "http://localhost:3001/",
     setupNodeEvents(on) {
       on("file:preprocessor", vitePreprocessor());
     },
