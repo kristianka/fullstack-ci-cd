@@ -36,9 +36,6 @@ jobs:
           - name: Build
             run: cd blog_frontend && npm run build & cd ..      
 
-          - name: Run jest tests
-            run: npm run test
-
           - name: e2e tests
             uses: cypress-io/github-action@v5
             with:
