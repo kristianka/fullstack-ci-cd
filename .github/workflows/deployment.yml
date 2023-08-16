@@ -23,9 +23,17 @@ jobs:
           - name: Install dependencies
             run: npm install
 
+          # Move the frontend directory out temporarily
+          - name: Move frontend for linting
+            run: mv blog_frontend temp_frontend
+
           - name: Check style for backend
             run: npm run eslint ./**/*.js
-          
+
+          # Move the frontend directory back
+          - name: Restore frontend directory
+            run: mv temp_frontend blog_frontend
+            
           - name: Build
             run: cd blog_frontend && npm run build & cd ..
 
