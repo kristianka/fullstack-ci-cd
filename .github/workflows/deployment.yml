@@ -23,8 +23,8 @@ jobs:
           - name: Install dependencies
             run: npm install
 
-          - name: Check style for backend
-            run: npm run eslint ./**/*.js
+          - name: Check styles
+            run: npm run lint
 
           - name: Build
             run: cd blog_frontend && npm run build & cd ..
