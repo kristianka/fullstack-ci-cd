@@ -24,7 +24,7 @@ jobs:
             run: npm install && cd blog_frontend && npm install & cd ..
 
           - name: Check styles
-            run: npm run lint
+            run: npm run lint && cd blog_frontend && npm run lint & cd ..
 
           - name: Build
             run: cd blog_frontend && npm run build & cd ..
