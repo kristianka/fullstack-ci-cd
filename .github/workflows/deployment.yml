@@ -11,10 +11,10 @@ on:
       
 env: 
   MONGODB_URI: ${{ secrets.MONGODB_URI }}
-  TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
+  TEST_MONGODB_URI: "${{ secrets.TEST_MONGODB_URI }}"
   SECRET: ${{ secrets.SECRET }}
   PORT: ${{ secrets.PORT }}
-  
+
 jobs:
     deployment_pipeline:
         runs-on: ubuntu-20.04
