@@ -20,8 +20,11 @@ jobs:
             with:
                 node-version: '16'
 
-          - name: Install dependencies
-            run: npm install && cd blog_frontend && npm install & cd ..
+          - name: Install dependencies for frontend
+            run: npm install
+
+          - name: Install dependencies for backend
+            run: cd blog_frontend && npm install
 
           - name: Check styles
             run: npm run lint && cd blog_frontend && npm run lint & cd ..
