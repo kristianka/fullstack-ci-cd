@@ -21,7 +21,7 @@ jobs:
                 node-version: '16'
 
           - name: Install dependencies
-            run: npm install
+            run: npm install && cd blog_frontend && npm install & cd ..
 
           - name: Check styles
             run: npm run lint
