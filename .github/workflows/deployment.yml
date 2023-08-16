@@ -47,7 +47,7 @@ jobs:
             with:
               command: cd blog_frontend && npm run cy:e2e
               start: npm run start:test          
-              wait-on: http://localhost:5173
+              wait-on: http://localhost:3001
 
     
     # deploy:
