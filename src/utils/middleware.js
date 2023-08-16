@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import jwt from "jsonwebtoken";
 
 const getTokenFromReq = (req, res, next) => {
@@ -8,7 +9,7 @@ const getTokenFromReq = (req, res, next) => {
         req.token = null;
     }
     next();
-}
+};
 
 const getUserFromReq = (req, res, next) => {
     const decodedToken = jwt.verify(req.token, process.env.SECRET);
@@ -18,7 +19,7 @@ const getUserFromReq = (req, res, next) => {
         req.user = null;
     }
     next();
-}
+};
 
 const unknownEndpoint = (req, res) => {
     res.status(404).send("Not found");
@@ -43,11 +44,11 @@ const errorHandler = (error, req, res, next) => {
     } else if (error.name === "TokenExpiredError") {
         return res.status(401).json({ error: "Token expired" });
     } else if (error.name.includes("SyntaxError")) {
-        return res.status(400).json({ error: "Bad request" })
+        return res.status(400).json({ error: "Bad request" });
     }
     else {
         next(error);
     }
 };
 
-export { getTokenFromReq, getUserFromReq, unknownEndpoint, errorHandler }
+export { getTokenFromReq, getUserFromReq, unknownEndpoint, errorHandler };

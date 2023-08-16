@@ -1,4 +1,4 @@
-import { Blog } from "../models/blog"
+import { Blog } from "../models/blog";
 
 const initialBlogs = [
     {
@@ -19,7 +19,7 @@ const initialBlogs = [
         url: "http://www.cs.utexas.edu/~EWD/transcriptions/EWD08xx/EWD808.html",
         likes: 12
     }
-]
+];
 
 const nonExistingId = async () => {
     const blog = new Blog({
@@ -27,15 +27,15 @@ const nonExistingId = async () => {
         author: "Tester Man",
         url: "test.com/",
         likes: 71,
-    })
-    await blog.save()
-    await blog.deleteOne()
-    return blog._id.toString()
-}
+    });
+    await blog.save();
+    await blog.deleteOne();
+    return blog._id.toString();
+};
 
 const blogsInDb = async () => {
-    const blogs = await Blog.find({})
-    return blogs.map(blog => blog.toJSON())
-}
+    const blogs = await Blog.find({});
+    return blogs.map(blog => blog.toJSON());
+};
 
-export { initialBlogs, nonExistingId, blogsInDb }
+export { initialBlogs, nonExistingId, blogsInDb };

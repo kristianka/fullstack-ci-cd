@@ -1,17 +1,19 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import "express-async-errors";
 import { PORT, MONGODB_URI } from "./utils/config.js";
 import blogRouter from "./controllers/blogs.js";
-import usersRouter from "./controllers/users.js"
+import usersRouter from "./controllers/users.js";
 import loginRouter from "./controllers/login.js";
 import testingRouter from "./controllers/testingRouter.js";
-import { getTokenFromReq, getUserFromReq, errorHandler, unknownEndpoint } from "./utils/middleware.js";
+import { getTokenFromReq, errorHandler, unknownEndpoint } from "./utils/middleware.js";
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(express.static("dist"))
+app.use(express.static("dist"));
 
 // Connect to the database
 mongoose.connect(MONGODB_URI)
@@ -37,7 +39,7 @@ app.use(unknownEndpoint);
 app.use(errorHandler);
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`)
-})
+  console.log(`Server running on port ${PORT}`);
+});
 
 export default app;

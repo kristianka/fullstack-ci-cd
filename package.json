@@ -7,7 +7,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=production node src/app.js",
     "dev": "cross-env NODE_ENV=development nodemon src/app.js",
-    "eslint": "eslint './**/*.{js,jsx}'",
+    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "test": "cross-env NODE_ENV=test node --experimental-vm-modules node_modules/jest/bin/jest.js --verbose --runInBand",
     "start:test": "cross-env NODE_ENV=test node src/app.js"
   },
@@ -16,6 +16,8 @@
   "license": "ISC",
   "devDependencies": {
     "eslint": "^8.47.0",
+    "eslint-plugin-cypress": "^2.14.0",
+    "eslint-plugin-react": "^7.33.2",
     "jest": "^29.6.0",
     "nodemon": "^2.0.22",
     "supertest": "^6.3.3"

@@ -15,11 +15,11 @@ usersRouter.post("/", async (req, res) => {
     const { username, name, password } = req.body;
 
     if (username.length < 3) {
-        return res.status(400).json({ error: "Username minimum length is 3" })
+        return res.status(400).json({ error: "Username minimum length is 3" });
     }
 
     if (password.length < 3) {
-        return res.status(400).json({ error: "Password minimum length is 3" })
+        return res.status(400).json({ error: "Password minimum length is 3" });
     }
 
     const saltRounds = 10;

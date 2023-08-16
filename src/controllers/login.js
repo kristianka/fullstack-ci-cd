@@ -1,5 +1,6 @@
+/* eslint-disable no-undef */
 import jwt from "jsonwebtoken";
-import bcrypt from "bcrypt"
+import bcrypt from "bcrypt";
 import express from "express";
 import { User } from "../models/user.js";
 
@@ -17,10 +18,10 @@ loginRouter.post("/", async (req, res) => {
     const userForToken = {
         username: user.username,
         id: user._id,
-    }
+    };
 
     const token = jwt.sign(userForToken, process.env.SECRET, { expiresIn: 60 * 60 });
-    res.status(200).send({ token, username: user.username, name: user.name })
+    res.status(200).send({ token, username: user.username, name: user.name });
 });
 
 export default loginRouter;
