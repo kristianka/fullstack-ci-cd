@@ -9,8 +9,12 @@ on:
     branches: [main]
     types: [opened, synchronize]
       
-# note that your "main" branch might be called main instead of master
-
+env: 
+  MONGODB_URI: ${{ secrets.MONGODB_URI }}
+  TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
+  SECRET: ${{ secrets.SECRET }}
+  PORT: ${{ secrets.PORT }}
+  
 jobs:
     deployment_pipeline:
         runs-on: ubuntu-20.04
@@ -30,7 +34,7 @@ jobs:
             run: npm run lint && cd blog_frontend && npm run lint & cd ..
 
           - name: Build
-            run: cd blog_frontend && npm run build & cd ..
+            run: cd blog_frontend && npm run build & cd ..      
 
           - name: Run jest tests
             run: npm run test
