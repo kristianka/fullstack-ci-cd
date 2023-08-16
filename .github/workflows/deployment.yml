@@ -33,10 +33,16 @@ jobs:
           - name: Check styles
             run: npm run lint && cd blog_frontend && npm run lint & cd ..
 
+          - name: Turn on backend server
+            run: npm run start:test
+
+          - name: Turn on frontend server
+            run: cd blog_frontend && npm run dev
+           
           - name: e2e tests
             uses: cypress-io/github-action@v5
             with:
-              command: npm run start:test && cd blog_frontend && npm run dev && npm run cy:e2e
+              command: npm run cy:e2e
               wait-on: http://localhost:5173
           
           - name: Build
