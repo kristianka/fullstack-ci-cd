@@ -22,7 +22,7 @@ mongoose.connect(MONGODB_URI)
   })
   .catch((error) => {
     console.log("Error connecting to MongoDB:", error.message);
-    console.log("uri length:", MONGODB_URI.length());
+    console.log("uri length:", MONGODB_URI.length);
     process.exit(1);
   });
 
